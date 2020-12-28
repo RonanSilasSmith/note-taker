@@ -116,15 +116,16 @@ const handleRenderSaveBtn = () => {
 
 // Render the list of note titles
 const renderNoteList = async (notes) => {
+  console.log('1');
   let jsonNotes = await notes.json();
   if (window.location.pathname === '/notes') {
     noteList.forEach((el) => (el.innerHTML = ''));
   }
-
+  console.log('1');
   let noteListItems = [];
-
+  console.log('1');
   // Returns HTML element with or without a delete button
-  const createLi = (text, delBtn = true) => {
+  const createLi = (text) => {
     const liEl = document.createElement('li');
     liEl.classList.add('list-group-item');
 
@@ -133,24 +134,24 @@ const renderNoteList = async (notes) => {
     spanEl.addEventListener('click', handleNoteView);
 
     liEl.append(spanEl);
+    console.log('1');
+    // if (delBtn) {
+    //   const delBtnEl = document.createElement('i');
+    //   delBtnEl.classList.add(
+    //     'fas',
+    //     'fa-trash-alt',
+    //     'float-right',
+    //     'text-danger',
+    //     'delete-note'
+    //   );
+    //   delBtnEl.addEventListener('click', handleNoteDelete);
 
-    if (delBtn) {
-      const delBtnEl = document.createElement('i');
-      delBtnEl.classList.add(
-        'fas',
-        'fa-trash-alt',
-        'float-right',
-        'text-danger',
-        'delete-note'
-      );
-      delBtnEl.addEventListener('click', handleNoteDelete);
-
-      liEl.append(delBtnEl);
-    }
-
+    //   liEl.append(delBtnEl);
+    // }
+    console.log('1');
     return liEl;
   };
-
+  console.log('12');
   if (jsonNotes.length === 0) {
     noteListItems.push(createLi('No saved Notes', false));
   }
@@ -161,10 +162,11 @@ const renderNoteList = async (notes) => {
 
     noteListItems.push(li);
   });
-
+  console.log('13');
   if (window.location.pathname === '/notes') {
     noteListItems.forEach((note) => noteList[0].append(note));
   }
+  console.log(123)
 };
 
 // Gets notes from the db and renders them to the sidebar
@@ -176,5 +178,5 @@ if (window.location.pathname === '/notes') {
   noteTitle.addEventListener('keyup', handleRenderSaveBtn);
   noteText.addEventListener('keyup', handleRenderSaveBtn);
 }
-
+console.log('1');
 getAndRenderNotes();

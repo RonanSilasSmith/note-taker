@@ -1,4 +1,5 @@
-const router = require("../htmlRoutes");
+const router = require('express').Router()
+//must've hastily copied code from index instead of just writing it like a normal person. This caused my get routes to return the webpage. Oops.
 const notes = require('../../db/db.json')
 const fs = require('fs') 
 const path = require('path')
