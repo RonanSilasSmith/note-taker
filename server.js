@@ -3,13 +3,14 @@ const app = express();
 const notes = require('./db/db.json')
 
 
-const port = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3001;
 //gets what we need out of the way^
 
 
 
-
-
+app.get('/api/notes', (req, res) => {
+    res.json(notes);
+});
 
 
 //goes last
