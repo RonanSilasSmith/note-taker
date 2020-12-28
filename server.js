@@ -1,8 +1,5 @@
 const express = require('express');
 const app = express();
-const notes = require('./db/db.json')
-const fs = require('fs');
-const path = require('path');
 const routes = require('./routes')
 
 app.use(express.urlencoded({ extended: true }));
